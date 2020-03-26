@@ -1,0 +1,70 @@
+{{ define "main" }}
+  {{- if .Site.IsServer -}} {{ "<!-- Layout: page/contactus.html -->" |safeHTML }} {{- end -}}
+  
+    <main class="main main-inner main-contacts jarallax" data-jarallax='{"speed": 0.7}'>
+      <div class="container">
+        <div class="opener">
+          <h1>Let's contact</h1>
+          <div class="row">
+            <p class="lead col-md-6 col-md-offset-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse non earum consectetur, ratione.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="content"> 
+      <section class="contacts">
+        <div class="map-wrapper">
+          <div id="map" class="map"></div>
+          <div class="col-md-5 col-lg-4 address-panel-2">
+            <div class="address-item-2">
+              <i class="icon icon-telephone"></i>
+              <div class="address-title-2">{{ .Params.phone_no }}</div>
+            </div>
+            <div class="address-item-2">
+              <i class="icon icon-envelope"></i>
+              <div class="address-title-2">{{ .Params.mail }}</div>
+            </div>
+            <div class="address-item-2">
+              <i class="icon icon-map-marker"></i>
+              <div class="address-title-2">{{ .Params.address }}</div>
+            </div>
+            <ul class="social-list">
+              <li><a href="" class="fa fa-facebook"></a></li>
+              <li><a href="" class="fa fa-twitter"></a></li>
+              <li><a href="" class="fa fa-linkedin"></a></li>
+              <li><a href="" class="fa fa-instagram"></a></li>
+            </ul>
+            <span class="address-info">
+             {{ .Params.address_info }}
+            </span>
+          </div>
+        </div>
+        <section class="section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <form class="js-ajax-form" novalidate="novalidate">
+                  <div class="col-sm-6 form-group">
+                      <input type="text"  name="name" placeholder="Name">
+                  </div>
+                  <div class="col-sm-6 form-group">
+                      <input type="email" name="email" required="" placeholder="Email *">
+                    </div>
+                  <div class="col-sm-12 form-group">
+                      <textarea rows="3" name="message" placeholder="Message"></textarea>
+                  </div>
+                  <div class="col-sm-12 text-right">
+                    <button type="submit" class="btn">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+    </div>
+    
+  {{- if .Site.IsServer -}} {{ "<!-- Layout: End page/contactus.html -->" |safeHTML }} {{- end -}}
+{{ end }}

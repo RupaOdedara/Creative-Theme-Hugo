@@ -1,0 +1,39 @@
+{{- if .Site.IsServer -}} {{ "<!-- Layout:  partial/progressbar-section.html -->" |safeHTML }} {{- end -}}
+
+  <section class="section">
+    <div class="container">
+      <div class="flex-md-middle row-space row-base row">
+        <div class="col-space col-base col-md-6">
+          <img alt="" class="img-responsive w100" src="{{ .Params.progress_img }}">
+        </div>
+        <div class="col-space col-base col-md-6">
+          <h3 class="section-title">{{ .Params.progress_title }}</h3>
+          <p>{{ .Params.progress_text }}</p>
+          <div class="skills">
+          
+            <div class="progress-bar-title">{{ .Params.design_title }}</div>
+            <div class="progress">
+              <div class="progress-bar" data-width="60">
+                <span>{{ .Params.design_value }}</span>
+              </div>
+            </div>
+          
+            <div class="progress-bar-title">{{ .Params.devlopment_title }}</div>
+            <div class="progress">
+              <div class="progress-bar" data-width="85">
+                <span>{{ .Params.devlopment_value }}</span>
+              </div>
+            </div>
+            <div class="progress-bar-title">{{ .Params.code_title }}</div>
+            <div class="progress">
+              <div class="progress-bar" data-width="75">
+                <span>{{ .Params.code_value }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{{- if .Site.IsServer -}} {{ "<!-- Layout:  End partial/progressbar-section.html -->" |safeHTML }} {{- end -}}

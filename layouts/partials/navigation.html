@@ -1,0 +1,51 @@
+{{- if .Site.IsServer -}} {{ "<!-- Layout: partial/navigation.html -->" |safeHTML }} {{- end -}}
+
+  <header class="navbar">
+    <div class="container">
+      <a href="/" class="brand js-target-scroll">
+        Mario.
+      </a>
+
+      <!-- Navbar Collapse -->
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+    
+      <!-- Navigation Desctop -->
+
+      <nav class="nav-desctop hidden-xs hidden-sm">
+        <ul class="nav-desctop-list" id="nav">
+        
+          {{ range .Site.Menus.main }} 
+          <li>
+            <a href="{{.URL}}"  class="active">{{ .Name }}</a>
+          </li>
+          
+          {{ end }}
+       
+        </ul>
+      </nav>
+
+      <!-- Navigation Mobile -->
+
+       <nav class="nav-mobile hidden-md hidden-lg">
+        <div class="collapse navbar-collapse" id="nav-collapse"> 
+          <ul class="nav-mobile-list">
+          
+            {{ range .Site.Menus.main }} 
+            <li>
+              <a href="{{.URL}}"  class="active">{{ .Name }}</a>
+            </li>
+            {{ end }}
+            
+          </ul>
+        </div>
+      </nav>   
+    </div>
+  </header>
+  
+{{- if .Site.IsServer -}} {{ "<!-- Layout: partial/navigation.html -->" |safeHTML }} {{- end -}}

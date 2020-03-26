@@ -1,0 +1,62 @@
+{{ define "main" }}
+  {{- if .Site.IsServer -}} {{ "<!-- Layout: blog/list.html -->" |safeHTML }} {{- end -}}
+    
+    <main class="main main-inner main-blog jarallax" data-jarallax='{"speed": 0.7}'>
+      <div class="container">
+        <div class="opener">
+          <h1>Useful articles.</h1>
+          <div class="row">
+            <p class="lead col-md-6 col-md-offset-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse non earum consectetur, ratione.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="content"> 
+      <!-- Blog List -->
+      <section class="blog-list bg-light section">
+        <div class="container">
+
+
+          {{ range .Paginator.Pages.ByWeight }}
+            <article class="blog">
+              <div class="row">
+                <div class="blog-thumbnail col-md-8">
+                  <a href="{{ .RelPermalink }}"><div class="blog-thumbnail-bg col-md-8 visible-md visible-lg" style="background-image: url('{{ .Params.img }}');"></div></a>
+                  <a href="{{ .RelPermalink }}"><div class="blog-thumbnail-img visible-xs visible-sm"><img alt="" class="img-responsive" src="{{ .Params.img }}"></div></a>
+                </div>
+                <div class="blog-info col-md-4">
+                  <a href="" class="blog-rubric">{{ .Params.blog_type }}</a>
+                  <h3 class="blog-title">
+                    <a href="{{ .RelPermalink }}">{{ .Params.title }}</a>
+                  </h3>
+                  <p class="text-muted">{{ .Params.text }}</p>
+                  <div class="blog-meta">
+                    <div class="pull-left">
+                      by <a href="#"  class="author">{{ .Params.author }}</a>
+                    </div>
+                    <div class="pull-right">
+                      <div class="time">{{ dateFormat "02 Jan 2006" .Params.date }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          {{ end }}
+         
+          <div class="overview text-center">
+
+            {{ $paginator := .Paginate .Pages }}
+            {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.Next.URL }}" class="btn btn-white load-more">More posts</a>
+            {{ end }}
+            
+          </div>
+        </div>
+      </section>
+    </div>
+    
+
+
+  {{- if .Site.IsServer -}} {{ "<!-- Layout: End blog/list.html -->" |safeHTML }} {{- end -}}
+{{ end }}

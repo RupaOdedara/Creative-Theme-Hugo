@@ -1,0 +1,73 @@
+{{- if .Site.IsServer -}} {{ "<!-- Layout: partial/footer.html -->" |safeHTML }} {{- end -}}
+  <footer id="footer" class="footer bg-dark">     
+    <div class="container">
+      <div class="row-base row-space row">
+        <div class="brand-info col-base col-space col-sm-6 col-md-3">
+          <a href="#top" class="brand js-target-scroll">
+            Mario.
+          </a>
+          <p>We create web products for the help and growth of your business.</p>
+          <address><strong class="text-white">E-mail:</strong> example@example.ru</address>
+        </div>
+        <div class="col-base col-space col-sm-6 col-md-2">
+          <strong class="footer-title">Links</strong>
+          <ul class="nav-bottom">
+
+            {{ range .Site.Menus.main }} 
+          <li>
+            <a href="{{.URL}}"  class="active">{{ .Name }}</a>
+          </li>
+          {{ end }}
+       
+          </ul>
+        </div>
+        <div class="col-base col-space col-sm-6 col-md-4">
+          <div class="widget_recent_entries">
+            <strong class="footer-title">Recent Posts</strong>
+            <ul>
+              <li>
+                <div class="media-left"><a href=""><img alt=""  src="/img/blog/1-70x70.jpg"></a></div>
+                <div class="media-right">
+                  <a href="" class="recet-entries-title">Don’t miss Top Things To Do In San Francisco</a>
+                  <div class="recent-entries-time">12/09/2016 </div>
+                </div>
+              </li>
+              <li>
+                <div class="media-left"><a href=""><img alt=""  src="/img/blog/2-70x70.jpg"></a></div>
+                <div class="media-right">
+                  <a href="" class="recet-entries-title">Don’t miss Top Things To Do In San Francisco</a>
+                  <div class="recent-entries-time">12/09/2016 </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-subscribe col-base col-space col-sm-6 col-md-3">
+          <strong class="footer-title">Newsletter</strong>
+          <form class="subscribe-form js-subscribe-form">
+            <div class="input-group">
+              <input id="mc-email" type="email" class="input-round form-control" placeholder="Email">
+              <span class="input-group-btn">
+                <button class="btn" type="submit"><span class="icon-arrow-right"></span></button>
+              </span>
+            </div>
+            <label class="mc-label" for="mc-email" id="mc-notification"></label>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+          <div class="copyrights">
+          © Copyright 2017 Mario. All Rights Reserved
+          </div>
+          <ul class="social-list">
+            <li><a href="" class="fa fa-facebook"></a></li>
+            <li><a href="" class="fa fa-twitter"></a></li>
+            <li><a href="" class="fa fa-linkedin"></a></li>
+            <li><a href="" class="fa fa-instagram"></a></li>
+          </ul>  
+      </div>
+    </div>
+  </footer>
+{{- if .Site.IsServer -}} {{ "<!-- Layout: partial/footer.html -->" |safeHTML }} {{- end -}}

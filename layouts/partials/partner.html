@@ -1,0 +1,15 @@
+{{- if .Site.IsServer -}} {{ "<!-- Layout:  partial/partner.html -->" |safeHTML }} {{- end -}}
+  <!-- Partners -->
+  <section class="partners section-sm">
+    <div class="container">
+      <div class="js-partners-carousel">
+        {{ range .Site.Data.partner }}
+        <div class="partner">
+          <img alt="partner" src="{{ .img }}">
+        </div>
+      {{ end }}
+      </div>
+    </div>
+  </section>
+
+{{- if .Site.IsServer -}} {{ "<!-- Layout:  End partial/partner.html -->" |safeHTML }} {{- end -}}

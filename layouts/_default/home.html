@@ -1,0 +1,218 @@
+{{ define "main" }}
+  {{- if .Site.IsServer -}} {{ "<!-- Layout: _default/home.html -->" |safeHTML }} {{- end -}}
+    <main class="main">
+      <div class="arrow-left hidden-xs">
+        <span class="icon-chevron-left"></span>
+      </div>
+      <div class="arrow-right hidden-xs">
+        <span class="icon-chevron-right"></span>
+      </div>
+      <!-- Start revolution slider -->
+      <div class="rev_slider_wrapper">
+        <div id="rev_slider" class="rev_slider fullscreenbanner">
+          <ul>
+          {{ range sort .Params.home_carousel "weight" }}  
+            
+            <!-- Slide 1 -->
+            <li  data-transition='slideleft' data-slotamount='default' data-masterspeed="1500" data-fsmasterspeed="1000">
+              <!-- Main image-->
+              <img src="{{ .img }}"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
+              <!-- Layer 1 -->
+              <div class="slider-title tp-caption" 
+                data-x="['center','center','center','center']" data-hoffset="['0']"  
+                data-y="['middle','middle','middle','middle']" data-voffset="['-80']"
+                data-textAlign="['center','center','center','center']"
+                data-fontsize="['70', '60','50','40']"
+                data-lineheight="['80','70', '50','40']"
+                data-height="none"
+                data-whitespace="nowrap"
+                data-transform_idle="o:1;"
+                data-transform_in="x:[105%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;" 
+                data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+                data-mask_in="x:50px;y:0px;s:inherit;e:inherit;" 
+                data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+                data-start="500" 
+                data-splitout="none" 
+                data-responsive_offset="on" 
+                data-elementdelay="0.05">{{ .title }}
+              </div>
+              <!-- Layer 2 -->
+              <div class="slider-text tp-caption"
+                data-x="['center','center','center','center']" data-hoffset="['0']" 
+                data-y="['middle','middle','middle','middle']" data-voffset="['20']"
+                data-textAlign="['center','center','center','center']"
+                data-fontsize="['18']" 
+                data-lineheight="['32']" 
+                data-whitespace="normal"
+                data-width="['900','700','600','500']"
+                data-transform_idle="o:1;"
+                data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1200;e:Power1.easeInOut;" 
+                data-transform_out="opacity:0;s:1000;s:1000;" 
+                data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
+                data-start="1500" 
+                data-splitin="none" 
+                data-splitout="none"><span style="opacity:0.9">{{ .text }}</span>
+              </div>
+              <!-- Layer 3 -->
+              <div class="tp-caption"
+                data-x="['center','center','center','center']" data-hoffset="['0']" 
+                data-y="['middle','middle','middle','middle']" data-voffset="['125']" 
+                data-width="none"
+                data-fontsize="['16']"
+                data-height="none"
+                data-whitespace="nowrap"
+                data-transform_idle="o:1;"
+                data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
+                data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);"
+                data-transform_in="y:50px;opacity:0;s:1500;e:Power4.easeInOut;" 
+                data-transform_out="y:50px;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+                data-mask_out="x:inherit;y:inherit;" 
+                data-start="1500" 
+                data-splitin="on" 
+                data-splitout="none" 
+                data-responsive_offset="on"><a href="#request" class="btn" data-toggle="modal">{{ .btn_url }}</a>
+              </div>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+      <div class="mouse-helper">
+        <i class="icon ion-mouse"></i>
+      </div>
+    </main>
+    <div class="content">
+
+      {{ partial "mario-description.html" . }}
+
+      {{ partial "progressbar-section.html" . }}
+
+      <!-- Features -->
+      <section class="features section  bg-light">
+        <div class="container">
+          <div class="row-base row">
+            <div class="col-base col-feature col-sm-6 col-md-4">
+              <div class="media-left"><i class="icon text-primary icon-new-tab"></i></div>
+              <div class="media-right">
+                <h5>Web design</h5>
+                <p>Ever wondered how some graphic designers always manage to produce beautiful looking designs for their brochures, website designs.</p>
+              </div>
+            </div>
+            <div class="col-base col-feature col-sm-6 col-md-4">
+              <div class="media-left"><i class="icon text-primary icon-smartphone-embed"></i></div>
+              <div class="media-right">
+                <h5>Development</h5>
+                <p>Ever wondered how some graphic designers always manage to produce beautiful looking designs for their brochures, website designs.</p>
+              </div>
+            </div>
+            <div class="clearfix visible-sm"></div>
+            <div class="col-base col-feature col-sm-6 col-md-4">
+              <div class="media-left"><i class="icon text-primary icon-laptop-phone"></i></div>
+              <div class="media-right">
+                <h5>Coding</h5>
+                <p>Ever wondered how some graphic designers always manage to produce beautiful looking designs for their brochures, website designs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Team -->
+      <section class="team section pb-0">
+        <div class="container">
+          <div class="row">
+            <header class="text-center col-md-8 col-md-offset-2">
+              <h2 class="section-title">Best team <i>Ever</i></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, maxime tempora quaerat ratione iste. Nulla excepturi voluptatem error repellat tenetur facilis, veniam illum.</p>
+            </header>
+          </div>
+        </div>
+        <div class="section-content">
+          <div class="clearfix">
+            {{ range .Params.team }}
+            <div class="col-team col-sm-6 col-lg-3">
+              <figure class="team-profile">
+                <img alt="img" src="{{ . }}">
+                <figcaption class="team-caption">
+                  <div class="team-meta">
+                    <strong class="team-name">Jack Wilshere</strong>
+                    <span class="team-spec">CEO / Founder</span>
+                  </div>
+                  <ul class="team-social social-list">
+                    <li><a href="" class="fa fa-facebook"></a></li>
+                    <li><a href="" class="fa fa-twitter"></a></li>
+                    <li><a href="" class="fa fa-linkedin"></a></li>
+                    <li><a href="" class="fa fa-instagram"></a></li>
+                  </ul>
+                </figcaption>
+              </figure>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </section>
+      <!-- Clients -->
+      <section class="clients section pb-sm">
+        <div class="container">
+          <div class="row">
+            <header class="text-center col-md-8 col-md-offset-2">
+              <h2 class="section-title">Clients <i>Say</i>..</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, maxime tempora quaerat ratione iste. Nulla excepturi voluptatem error repellat tenetur facilis, veniam illum.</p>
+            </header>
+          </div>
+        </div>
+
+        {{ partial "clients.html" . }}
+        
+      </section>
+      <section class="section bg-light">
+        <div class="container">
+          <div class="row">
+            <header class="text-center col-md-8 col-md-offset-2">
+              <h2 class="section-title">Recent posts</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, maxime tempora quaerat ratione iste. Nulla excepturi voluptatem error repellat tenetur facilis, veniam illum.</p>
+            </header>
+          </div>
+        </div>
+        <div class="section-content">
+          <div class="container">
+            <div class="row-base row">
+
+              {{ range .Params.post }}
+                <div class="col-blog col-base col-sm-6 col-md-4">
+                  <article class="blog">
+                    <div class="blog-thumbnail">
+                      <a href="">
+                        <div class="blog-thumbnail-img"><img alt="" class="img-responsive" src="{{ .img }}"></div>
+                      </a>
+                    </div>
+                    <div class="blog-info">
+                      <a href="" class="blog-rubric">{{ .title }}</a>
+                      <h3 class="blog-title">
+                        <a href="">{{ .points }}</a>
+                      </h3>
+                      <div class="blog-meta">
+                        <div class="pull-left">
+                          <div class="time">{{ .date }}</div>
+                        </div>
+                        <div class="pull-right">
+                          <a href="#" class="read-more">{{ .btn_url }} &rarr;</a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              {{ end }}
+            
+            
+            </div>
+          </div>
+        </div>
+      </section>
+     {{ partial "partner.html" . }}
+
+     {{ partial "banner.html" . }}
+
+    </div>  
+    
+  {{- if .Site.IsServer -}} {{ "<!-- Layout: End _default/home.html -->" |safeHTML }} {{- end -}}
+{{ end }}

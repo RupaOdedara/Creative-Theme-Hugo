@@ -1,0 +1,66 @@
+{{ define "main" }}
+  {{- if .Site.IsServer -}} {{ "<!-- Layout: _blog/single.html -->" |safeHTML }} {{- end -}}
+    
+  
+  <main class="main main-inner main-blog jarallax" data-jarallax='{"speed": 0.7}'>
+    <div class="container">
+      <div class="opener">
+        <h1>Advertising Internet Online</h1>
+        <div class="row">
+          <p class="lead col-md-6 col-md-offset-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse non earum consectetur, ratione.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="content"> 
+
+    <!-- Blog List -->
+
+    <section class="blog-list bg-light section">
+      <div class="container">
+        <div class="row">
+          <div class="primary col-md-8">
+            <article class="post">
+              <div class="post-thumbnail">
+                <img alt="" class="img-responsive" src="{{ .Params.img }}">
+              </div>
+              <div class="post-meta">
+                <a href="" class="post-rubric">{{ .Params.blog_type }}</a>
+                <div class="post-date">
+                  <div class="time">{{  dateFormat "2 January 2006" .Params.date }}</div>
+                </div>
+                <div class="post-author">
+                  by <a href="#"  class="author">{{ .Params.author }}</a>
+                </div>
+              </div>
+              <h3 class="post-title">
+                {{ .Params.title }}
+              </h3>
+              <div class="text-muted">
+                {{ .Content }}
+              </div>
+           
+            </article>
+          </div>
+          <div class="secondary col-md-4">
+            <div class="widget widget_search">
+              <h3 class="widget-title">Search in blog</h3>
+              <form class="search-form">
+                <div class="input-group">
+                  <input type="search" class="input-round form-control" placeholder="Search" name="search">
+                  <span class="input-group-btn">
+                    <button class="btn" type="submit"><span class="icon-arrow-right"></span></button>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ 
+  </div>
+  {{- if .Site.IsServer -}} {{ "<!-- Layout: End blog/single.html -->" |safeHTML }} {{- end -}}
+{{ end }}

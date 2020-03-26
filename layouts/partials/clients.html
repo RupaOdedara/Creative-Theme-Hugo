@@ -1,0 +1,21 @@
+{{- if .Site.IsServer -}} {{ "<!-- Layout:  partial/clients.html -->" |safeHTML }} {{- end -}}
+  <div class="section-content text-center">
+    <div class="container">
+      <div class="col-md-10 col-lg-6 col-md-offset-1 col-lg-offset-3">
+        <div class="client-carousel-wrp">
+          <div class="client-carousel js-client-carousel">
+           {{ range .Site.Data.clients }}
+            <div class="client">
+              <img alt="" class="img-circle" width="100" src="{{ .img }}">
+              <span class="quote">"</span>
+              <p class="client-text">{{ .text }}
+              </p>
+              <i class="client-name">{{ .title }}</i>
+            </div>
+           {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{- if .Site.IsServer -}} {{ "<!-- Layout:  End partial/clients.html -->" |safeHTML }} {{- end -}}
