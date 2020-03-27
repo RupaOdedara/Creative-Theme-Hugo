@@ -1,35 +1,95 @@
 
+function PageTransition(){
+	var t1 = gsap.timeline();
+	t1.to('ul.transition li', { duraton: .5, scaleY: 1, transformOrigin: "bottom left", stagger: .2 })
+	t1.to('ul.transition li',{ duraton: .5, scaleY: 0, transformOrigin: "bottom left", stagger: .1, delay: .1 })
+}
 
-$(document).ready(function(){
+function contentAnimation(){
 
-	var transEffect = Barba.BaseTransition.extend({
+	var t1= gsap.timeline();
+	
+}
+function delay(n){
+n = n || 2000;
+return new Promise(done => {
 
-		start: function(){
-			this.newContainerLoading.then( val => this.fadeInNewcontent($(this.newContainer)));
+	setTimeout(() => {
+		done();
+
+	}, n );
+});	
+}
+
+
+
+barba.init({
+	sync: true,
+	transition: [{ 
+		async leave(data){
+			const done = this.async();
+			PageTransition();
+			await delay(1500);
+			done();
 		},
-		fadeInNewcontent: function(nc){
-			nc.hide();
-			var thisvar = this;
-			$(this.oldContainer).fadeOut(500).promise().done( () => {
-			nc.css('visibility','visible');
-			nc.fadeIn(500,function(){
-				thisvar.done();
-			})
-		});
-		}
-	 
+		async enter(data){
+				contentAnimation();
+		},
+		async once(data){
+			contentAnimation();
+   	}
+	
+	}]
+})
+// $(document).ready(function(){
 
-	});
+
+
+// 	barba.init({
+// 		sync: true,
+
+		
+
+// 	})
+// 	// var transEffect = Barba.BaseTransition.extend({
+
+// 	// 	start: function(){
+// 	// 		this.newContainerLoading.then( val => this.fadeInNewcontent($(this.newContainer)));
+// 	// 	},
+// 	// 	fadeInNewcontent: function(nc){
+// 	// 		nc.hide();
+// 	// 		var thisvar = this;
+// 	// 		$(this.oldContainer).fadeOut(500).promise().done( () => {
+// 	// 		nc.css('visibility','visible');
+// 	// 		nc.fadeIn(500,function(){
+// 	// 			thisvar.done();
+// 	// 		})
+// 	// 	});
+// 	// 	}
+// 	// });
  
-	Barba.Pjax.getTransition = function() {
-					return transEffect;
-				}
-	Barba.Pjax.start();
-
-});
+	
+// 	// Barba.Pjax.getTransition = function() {
+// 	// 				return transEffect;
+// 	// }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 	Barba.Pjax.start();
+// });
 
 
 
